@@ -15,6 +15,15 @@ class CatApiService {
         const requestURL = `${Configuration.CATAPI_BASE}images/search/`;
         return axios.get(requestURL);
     }
+
+    static async sendCatVote(id, vote) {
+        const voteData = {
+            image_id: id,
+            value: vote
+        }
+        const requestURL = `${Configuration.CATAPI_BASE}votes`;
+        return axios.post(requestURL, voteData);
+    }
 }
 
 export default CatApiService;
