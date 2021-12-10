@@ -4,11 +4,13 @@ import CatApiService from './app/services/CatApiService';
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import CatImage from './components/CatImage';
-import { HandThumbsUpFill } from 'react-bootstrap-icons';
 import VoteButtons from './components/VoteButtons';
+import useToggle from './utilities/useToggle';
+import UploadModal from './components/UploadModal';
 
 function App() {
   const [theCat, setTheCat] = useState({ url: '' });
+  const [isOpen, open, close] = useToggle(false);
 
   function loadKitty() {
     CatApiService.getSingleCat().then((result) => {
@@ -41,6 +43,10 @@ function App() {
       </Row>
       <Row >
         <h2>Click on the image to select a random next image</h2>
+      </Row>
+      <Row>
+        <Button onClick={open}>Upload a Image</Button>
+        <UploadModal isOpen={isOpen} onClose={close} />
       </Row>
     </Container>
   );

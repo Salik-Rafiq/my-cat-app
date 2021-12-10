@@ -5,7 +5,6 @@ axios.defaults.headers.common['x-api-key'] = Configuration.CATAPI_KEY;
 
 class CatApiService {
 
-
     static async searchCats(limit = 10, page = 0, order = 'asc') {
         const requestURL = `${Configuration.CATAPI_BASE}images/search/?limit=${limit}&page=${page}&order=${order}`;
         return axios.get(requestURL);
@@ -19,10 +18,22 @@ class CatApiService {
     static async sendCatVote(id, vote) {
         const voteData = {
             image_id: id,
-            value: vote
+            value: vote,
+            sub_id: Configuration.subID
         }
         const requestURL = `${Configuration.CATAPI_BASE}votes`;
         return axios.post(requestURL, voteData);
+    }
+
+    static async uploadCatImage(imageFile) {
+        const formData = new FormData();
+        formData.append('file', imageFile);
+        const requestURL = `${Configuration.CATAPI_BASE}images/upload`;
+        return axios.post(requestURL, formData, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        });
     }
 }
 
