@@ -5,8 +5,9 @@ axios.defaults.headers.common['x-api-key'] = Configuration.CATAPI_KEY;
 
 class CatApiService {
 
-    static async searchCats(limit = 10, page = 0, order = 'asc') {
-        const requestURL = `${Configuration.CATAPI_BASE}images/search/?limit=${limit}&page=${page}&order=${order}`;
+    static async searchCats({ limit = 9, page = 0, order = 'asc', breedId = "" } = {}) {
+
+        const requestURL = `${Configuration.CATAPI_BASE}images/search/?limit=${limit}&page=${page}&order=${order}&breed_id=${breedId}`;
         return axios.get(requestURL);
     }
 
@@ -35,6 +36,12 @@ class CatApiService {
             }
         });
     }
+
+    static async getBreeds() {
+        const requestURL = `${Configuration.CATAPI_BASE}breeds`;
+        return axios.get(requestURL);
+    }
+
 }
 
 export default CatApiService;

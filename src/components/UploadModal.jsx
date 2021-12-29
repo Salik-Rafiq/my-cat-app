@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import { useRef } from 'react';
 import { Button, Form, Modal, Alert, Spinner } from 'react-bootstrap';
 import CatApiService from '../app/services/CatApiService';
@@ -14,11 +13,11 @@ const UploadModal = ({ isOpen, onClose }) => {
     const [statusMessage, setStatusMessage] = useState();
     const [isUploading, setIsUploading] = useState(false);
     const fileRef = useRef();
-    let showSpinner = false;
+    /*let showSpinner = false;
     useEffect(() => {
         showSpinner = isUploading;
     }, [isUploading]);
-
+*/
     const onUploadClick = () => {
         if (!file === 0) {
             setStatusCode(1000);

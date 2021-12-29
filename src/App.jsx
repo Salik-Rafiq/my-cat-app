@@ -1,48 +1,29 @@
-import logo from './logo.svg';
 import './App.scss';
-import CatApiService from './app/services/CatApiService';
-import { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import CatImage from './components/CatImage';
-import VoteButtons from './components/VoteButtons';
+import { Container, Row, Col, Button, Tabs, Tab } from 'react-bootstrap';
 import useToggle from './utilities/useToggle';
+
 import UploadModal from './components/UploadModal';
+import VoteTab from './tabs/VoteTab';
+import SearchTab from './tabs/SearchTab';
 
 function App() {
-  const [theCat, setTheCat] = useState({ url: '' });
   const [isOpen, open, close] = useToggle(false);
 
-  function loadKitty() {
-    CatApiService.getSingleCat().then((result) => {
-      setTheCat(result.data[0]);
-    })
-  }
-
-  useEffect(() => {
-    loadKitty();
-  }, []);
-
-  function nextKitty() {
-    loadKitty();
-  }
 
   return (
-    <Container className="App" className="text-center">
+    <Container className="App text-center">
       <Row >
         <Col className="align-self-center"><h2>I made this myself</h2></Col>
       </Row>
       <Row>
-        <Col className="align-self-center ">
-          <CatImage id={theCat.id} url={theCat.url} onClick={nextKitty} />
-        </Col>
-      </Row>
-      <Row className="mt-3">
-        <Col>
-          <VoteButtons id={theCat.id} onSuccess={nextKitty} />
-        </Col>
-      </Row>
-      <Row >
-        <h2>Click on the image to select a random next image</h2>
+        <Tabs mountOnEnter={true}>
+          <Tab eventKey="vote" title="Vote">
+            <VoteTab />
+          </Tab>
+          <Tab eventKey="search" title="Search">
+            <SearchTab />
+          </Tab>
+        </Tabs>
       </Row>
       <Row>
         <Button onClick={open}>Upload a Image</Button>
