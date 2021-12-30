@@ -13,7 +13,7 @@ function App() {
   return (
     <Container className="App text-center">
       <Row >
-        <Col className="align-self-center"><h2>I made this myself</h2></Col>
+        <Col className="align-self-center"><h2>This is a work in progress.</h2></Col>
       </Row>
       <Row>
         <Tabs mountOnEnter={true}>
@@ -25,8 +25,11 @@ function App() {
           </Tab>
         </Tabs>
       </Row>
-      <Row>
-        <Button onClick={open}>Upload a Image</Button>
+      <Row className='justify-content-md-center'>
+        <hr />
+        <Col>
+          <Button onClick={open}>Upload a Image</Button>
+        </Col>
         <UploadModal isOpen={isOpen} onClose={close} />
       </Row>
     </Container>

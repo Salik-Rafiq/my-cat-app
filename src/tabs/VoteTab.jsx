@@ -25,7 +25,7 @@ const VoteTab = () => {
     return (
         <>
             <Row>
-                <Col className="align-self-center ">
+                <Col className="align-self-center mt-2">
                     <CatImage id={theCat.id} url={theCat.url} onClick={nextKitty} dimensions={{ cx: "500px", cy: "500px" }} />
                 </Col>
             </Row>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Form, Row } from "react-bootstrap";
+import { Form, Row, Image } from "react-bootstrap";
 import CatApiService from "../app/services/CatApiService";
 import CatImage from "../components/CatImage";
 
@@ -31,6 +31,7 @@ const SearchTab = () => {
     const breedRef = useRef();
     const [lastSearch, setLastSearch] = useState([]);
     const [searchCount, setSearchCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         loadBreeds()
@@ -39,6 +40,7 @@ const SearchTab = () => {
     }, []);
 
     const doSearch = async () => {
+        setIsLoading(true);
         loadSearch(breedRef.current.value)
             .then((data) => {
                 setSearchCount(data.length);
@@ -57,6 +59,7 @@ const SearchTab = () => {
                     gridData.push(currRow);
                 }
                 setLastSearch(gridData)
+                setIsLoading(false);
             });
     }
 
@@ -83,7 +86,8 @@ const SearchTab = () => {
                 </Form>
             </Row>
             <Row className="justify-content-md-center">
-                <table className="table" style={{ width: "auto" }}>
+                <Image src="/spinner.gif" style={{ display: isLoading ? "block" : "none", height: "125px", width: "125px" }} />
+                <table className="table" style={{ width: "auto", display: !isLoading ? "block" : "none" }}>
                     <tbody>
                         {lastSearch.map((elem) => {
                             return (
