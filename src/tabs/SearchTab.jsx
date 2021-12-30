@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Form, Row, Image } from "react-bootstrap";
 import CatApiService from "../app/services/CatApiService";
 import CatImage from "../components/CatImage";
+import Spinner from '../assets/spinner.gif';
 
 const loadBreeds = async () => {
     const result = await CatApiService.getBreeds();
@@ -86,7 +87,7 @@ const SearchTab = () => {
                 </Form>
             </Row>
             <Row className="justify-content-md-center">
-                <Image src="/spinner.gif" style={{ display: isLoading ? "block" : "none", height: "125px", width: "125px" }} />
+                <Image src={Spinner} style={{ display: isLoading ? "block" : "none", height: "125px", width: "125px" }} />
                 <table className="table" style={{ width: "auto", display: !isLoading ? "block" : "none" }}>
                     <tbody>
                         {lastSearch.map((elem) => {
