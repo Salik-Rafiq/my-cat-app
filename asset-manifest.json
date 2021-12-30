@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/my-cat-app/static/css/main.910b604a.chunk.css",
-    "main.js": "/my-cat-app/static/js/main.6e2eb161.chunk.js",
-    "main.js.map": "/my-cat-app/static/js/main.6e2eb161.chunk.js.map",
+    "main.js": "/my-cat-app/static/js/main.77bb2a77.chunk.js",
+    "main.js.map": "/my-cat-app/static/js/main.77bb2a77.chunk.js.map",
     "runtime-main.js": "/my-cat-app/static/js/runtime-main.5eba80cc.js",
     "runtime-main.js.map": "/my-cat-app/static/js/runtime-main.5eba80cc.js.map",
     "static/js/2.e0882e7e.chunk.js": "/my-cat-app/static/js/2.e0882e7e.chunk.js",
@@ -11,12 +11,13 @@
     "static/js/3.f4dfd7c9.chunk.js.map": "/my-cat-app/static/js/3.f4dfd7c9.chunk.js.map",
     "index.html": "/my-cat-app/index.html",
     "static/css/main.910b604a.chunk.css.map": "/my-cat-app/static/css/main.910b604a.chunk.css.map",
-    "static/js/2.e0882e7e.chunk.js.LICENSE.txt": "/my-cat-app/static/js/2.e0882e7e.chunk.js.LICENSE.txt"
+    "static/js/2.e0882e7e.chunk.js.LICENSE.txt": "/my-cat-app/static/js/2.e0882e7e.chunk.js.LICENSE.txt",
+    "static/media/spinner.72e5fa5c.gif": "/my-cat-app/static/media/spinner.72e5fa5c.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.5eba80cc.js",
     "static/js/2.e0882e7e.chunk.js",
     "static/css/main.910b604a.chunk.css",
-    "static/js/main.6e2eb161.chunk.js"
+    "static/js/main.77bb2a77.chunk.js"
   ]
 }
