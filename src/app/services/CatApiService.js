@@ -42,6 +42,10 @@ class CatApiService {
         return axios.get(requestURL);
     }
 
+    static async loadVotes() {
+        const requestURL = `${Configuration.CATAPI_BASE}votes`;
+        return axios.get(requestURL);
+    }
 }
 
 export default CatApiService;
