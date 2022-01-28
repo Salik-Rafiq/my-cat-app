@@ -43,7 +43,7 @@ class CatApiService {
     }
 
     static async loadVotes() {
-        const requestURL = `${Configuration.CATAPI_BASE}votes`;
+        const requestURL = `${Configuration.CATAPI_BASE}votes?limit=5000`;
         return axios.get(requestURL);
     }
 }

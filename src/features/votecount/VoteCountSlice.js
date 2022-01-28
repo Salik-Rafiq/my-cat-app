@@ -6,6 +6,12 @@ export const loadVotes = createAsyncThunk('votes/loadVotes', async () => {
     return response.data;
 });
 
+export const getCatVoteById = (state, catId) => {
+    console.log(state);
+    const vote = state.votes.find(elem => elem.image_id === catId);
+    return vote ? vote.value : null;
+}
+
 const initialState = {
     status: 'empty',
     votes: []
@@ -16,7 +22,7 @@ const VoteCountReducer = createSlice({
     reducers: {
         registerVote(state, action) {
             const newVote = action.payload;
-            const existingCatVote = state.votes.find(vote => vote.image_id == newVote.image_id);
+            const existingCatVote = state.votes.find(vote => vote.image_id === newVote.image_id);
             if (existingCatVote) {
                 existingCatVote.value += newVote.value;
             } else {

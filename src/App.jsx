@@ -9,7 +9,6 @@ import SearchTab from './tabs/SearchTab';
 function App() {
   const [isOpen, open, close] = useToggle(false);
 
-
   return (
     <Container className="App text-center">
       <Row >
