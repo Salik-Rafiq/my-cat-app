@@ -5,17 +5,20 @@ import { useDispatch } from 'react-redux';
 import CatApiService from '../app/services/CatApiService';
 import { registerVote } from '../features/votecount/VoteCountSlice';
 
-const VoteButtons = ({ id, onSuccess }) => {
+const VoteButtons = ({ id, onClicked = null, onSuccess = null }) => {
     const [voted, setVoted] = useState(false);
     const dispatch = useDispatch();
 
     const sendVote = async (vote) => {
+        if (onClicked) {
+            onClicked();  //usually async so loads next one
+        }
         try {
             setVoted(true);
             await CatApiService.sendCatVote(id, vote);
+            /* register this vote with the Redux */
+            dispatch(registerVote({ "image_id": id, "value": vote }));
             if (onSuccess) {
-                /* register this vote with the Redux */
-                dispatch(registerVote({ "image_id": id, "value": vote }));
                 onSuccess();
             }
         } catch {

@@ -44,7 +44,7 @@ const VoteTab = () => {
             </Row>
             <Row className="mt-3">
                 <Col>
-                    <VoteButtons id={theCat.id} onSuccess={nextKitty} />
+                    <VoteButtons id={theCat.id} onClicked={nextKitty} />
                 </Col>
             </Row>
             <Row >
