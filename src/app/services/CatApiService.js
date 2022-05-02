@@ -46,6 +46,12 @@ class CatApiService {
         const requestURL = `${Configuration.CATAPI_BASE}votes?limit=5000`;
         return axios.get(requestURL);
     }
+
+    static async getMyImages(page = 1) {
+        const requestURL = `${Configuration.CATAPI_BASE}images?limit=${Configuration.PAGE_LIMIT}`;
+        return axios.get(requestURL);
+    }
+
 }
 
 export default CatApiService;

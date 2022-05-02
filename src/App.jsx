@@ -5,6 +5,7 @@ import useToggle from './utilities/useToggle';
 import UploadModal from './components/UploadModal';
 import VoteTab from './tabs/VoteTab';
 import SearchTab from './tabs/SearchTab';
+import UploadsTab from './tabs/UploadsTab';
 
 function App() {
   const [isOpen, open, close] = useToggle(false);
@@ -21,6 +22,9 @@ function App() {
           </Tab>
           <Tab eventKey="search" title="Search">
             <SearchTab />
+          </Tab>
+          <Tab eventKey="uploads" title="Uploads">
+            <UploadsTab />
           </Tab>
         </Tabs>
       </Row>
